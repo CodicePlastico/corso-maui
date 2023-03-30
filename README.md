@@ -1,2 +1,2 @@
 # Corso MAUI
-Esempi ed esercizi
+Qui verranno caricati esempi ed esercizi per il corso MAUI.
