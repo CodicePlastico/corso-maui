@@ -1,2 +1,2 @@
-# corso-maui
+# Corso MAUI
 Esempi ed esercizi
