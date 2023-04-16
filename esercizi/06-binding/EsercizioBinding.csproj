@@ -55,11 +55,14 @@
 	  <Compile Update="Pages\BindingContextSource.xaml.cs">
 	    <DependentUpon>BindingContextSource.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages\AncestorSource.xaml.cs">
-	    <DependentUpon>AncestorSource.xaml</DependentUpon>
+	  <Compile Update="Pages\RelativeAncestorSource.xaml.cs">
+	    <DependentUpon>RelativeAncestorSource.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\BoolToInvertedBool.xaml.cs">
 	    <DependentUpon>BoolToInvertedBool.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\RelativeSelfSource.xaml.cs">
+	    <DependentUpon>RelativeSelfSource.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\ValueToValueTwoWay.xaml.cs">
 	    <DependentUpon>ValueToValueTwoWay.xaml</DependentUpon>
@@ -70,8 +73,8 @@
 	  <Compile Update="Pages\ValueToVisibility.xaml.cs">
 	    <DependentUpon>ValueToVisibility.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages\ValueToText.xaml.cs">
-	    <DependentUpon>ValueToText.xaml</DependentUpon>
+	  <Compile Update="Pages\ReferenceSource.xaml.cs">
+	    <DependentUpon>ReferenceSource.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -79,10 +82,13 @@
 	  <MauiXaml Update="Pages\BindingContextSource.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\AncestorSource.xaml">
+	  <MauiXaml Update="Pages\RelativeAncestorSource.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\BoolToInvertedBool.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\RelativeSelfSource.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\ValueToValueTwoWay.xaml">

@@ -1,8 +1,8 @@
 ﻿namespace EsercizioBinding.Pages;
 
-public partial class AncestorSource : ContentPage
+public partial class ReferenceSource : ContentPage
 {
-    public AncestorSource()
+    public ReferenceSource()
     {
         InitializeComponent();
     }

@@ -8,9 +8,19 @@
     Shell.FlyoutBehavior="Locked">
 
     <ShellContent
-        Title="ValueToText"
-        ContentTemplate="{DataTemplate pages:ValueToText}"
-        Route="ValueToText" />
+        Title="Reference source"
+        ContentTemplate="{DataTemplate pages:ReferenceSource}"
+        Route="ReferenceSource" />
+
+    <ShellContent
+        Title="Relative Self source"
+        ContentTemplate="{DataTemplate pages:RelativeSelfSource}"
+        Route="RelativeSelfSource" />
+
+    <ShellContent
+        Title="Relative Ancestor source"
+        ContentTemplate="{DataTemplate pages:RelativeAncestorSource}"
+        Route="RelativeAncestorSource" />
 
     <ShellContent
         Title="ValueToValueTwoWay"
@@ -31,11 +41,6 @@
         Title="MultiBinding"
         ContentTemplate="{DataTemplate pages:MultiBinding}"
         Route="MultiBinding" />
-
-    <ShellContent
-        Title="Ancestor"
-        ContentTemplate="{DataTemplate pages:AncestorSource}"
-        Route="AncestorSource" />
 
     <ShellContent
         Title="Binding Context"

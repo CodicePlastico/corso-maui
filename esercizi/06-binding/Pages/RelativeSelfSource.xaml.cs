@@ -1,8 +1,8 @@
 ﻿namespace EsercizioBinding.Pages;
 
-public partial class ValueToText : ContentPage
+public partial class RelativeSelfSource : ContentPage
 {
-    public ValueToText()
+    public RelativeSelfSource()
     {
         InitializeComponent();
     }

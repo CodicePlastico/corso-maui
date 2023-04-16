@@ -13,6 +13,6 @@
         <Label Text="25%" FontSize="30" HorizontalTextAlignment="Center" />
         <Slider Minimum="-20" Maximum="60" Value="0" />
 
-        </VerticalStackLayout>
+    </VerticalStackLayout>
 
 </ContentPage>
