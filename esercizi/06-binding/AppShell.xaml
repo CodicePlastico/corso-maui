@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="EsercizioBinding.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:EsercizioBinding.Pages"
+    Shell.FlyoutWidth="250"
+    Shell.FlyoutBehavior="Locked">
+
+    <ShellContent
+        Title="ValueToText"
+        ContentTemplate="{DataTemplate pages:ValueToText}"
+        Route="ValueToText" />
+
+    <ShellContent
+        Title="ValueToValueTwoWay"
+        ContentTemplate="{DataTemplate pages:ValueToValueTwoWay}"
+        Route="ValueToValueTwoWay" />
+
+    <ShellContent
+        Title="ValueToVisibility"
+        ContentTemplate="{DataTemplate pages:ValueToVisibility}"
+        Route="ValueToVisibility" />
+
+    <ShellContent
+        Title="BoolToInvertedBool"
+        ContentTemplate="{DataTemplate pages:BoolToInvertedBool}"
+        Route="BoolToInvertedBool" />
+
+    <ShellContent
+        Title="MultiBinding"
+        ContentTemplate="{DataTemplate pages:MultiBinding}"
+        Route="MultiBinding" />
+
+    <ShellContent
+        Title="Ancestor"
+        ContentTemplate="{DataTemplate pages:AncestorSource}"
+        Route="AncestorSource" />
+
+    <ShellContent
+        Title="Binding Context"
+        ContentTemplate="{DataTemplate pages:BindingContextSource}"
+        Route="BindingContextSource" />
+
+</Shell>

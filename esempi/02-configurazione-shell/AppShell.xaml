@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ConfigurazioneShell.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ConfigurazioneShell"
+    Shell.BackgroundColor="White"
+    Shell.TitleColor="Black"
+    Shell.ForegroundColor="Black"
+    Shell.FlyoutWidth="200"
+    Shell.FlyoutBehavior="Locked"
+    Shell.FlyoutBackdrop="#40000000"
+    Shell.TabBarBackgroundColor="#F5F5F5">
+
+    <!-- MENU BAR -->
+    <Shell.MenuBarItems>
+        <MenuBarItem Text="File">
+            <MenuFlyoutItem Text="Nuovo" IconImageSource="{StaticResource IconNew}" />
+            <MenuFlyoutSubItem Text="Apri" IconImageSource="{StaticResource IconOpen}">
+                <MenuFlyoutItem Text="File" />
+                <MenuFlyoutItem Text="Cartella" />
+            </MenuFlyoutSubItem>
+            <MenuFlyoutSeparator />
+            <MenuFlyoutItem Text="Esci" IconImageSource="{StaticResource IconExit}" />
+        </MenuBarItem>
+        <MenuBarItem Text="Modifica">
+            <MenuFlyoutItem Text="Taglia" IconImageSource="{StaticResource IconCut}" />
+            <MenuFlyoutItem Text="Copia" IconImageSource="{StaticResource IconCopy}" />
+            <MenuFlyoutItem Text="Incolla" IconImageSource="{StaticResource IconPaste}" />
+        </MenuBarItem>
+    </Shell.MenuBarItems>
+
+    <!-- PER NASCONDERE IL TITOLO, DECOMMENTA QUESTO -->
+    <!--
+    <Shell.TitleView>
+        <Grid />
+    </Shell.TitleView>
+    -->
+
+    <!-- TOOLBAR -->
+    <Shell.ToolbarItems>
+        <ToolbarItem Text="Account" IconImageSource="{StaticResource IconAccount}" />
+    </Shell.ToolbarItems>
+
+    <!-- HEADER DEL FLYOUT -->
+    <Shell.FlyoutHeader>
+        <Label BackgroundColor="#F5F5FF" Text="Header del flyout" Margin="3" Padding="10" />
+    </Shell.FlyoutHeader>
+
+    <!-- FOOTER DEL FLYOUT -->
+    <Shell.FlyoutFooter>
+        <Label BackgroundColor="#F5F5FF" Text="Footer del flyout" Margin="3" Padding="10" />
+    </Shell.FlyoutFooter>
+    
+    <!-- SFONDO DEL FLYOUT -->
+    <Shell.FlyoutBackground>
+        <!-- StartPoint defaults to (0,0) -->
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="White"
+                          Offset="0.5" />
+            <GradientStop Color="LightGray"
+                          Offset="1.0" />
+        </LinearGradientBrush>
+    </Shell.FlyoutBackground>
+
+    <!-- CONTENUTO DEL FLYOUT -->
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Icon="{StaticResource IconHome}"
+        Route="MainPage" />
+    
+    <!-- OPPURE, SE AL POSTO DEL FLYOUT PREFERISCI LE TAB -->
+    <!-- DECOMMENTA QUESTO E COMMENTA LO SHELLCONTENT QUI SOPRA -->
+    <!-- <TabBar>
+        <Tab Title="Page1" Icon="{StaticResource IconHome}">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+        <Tab Title="Page2" Icon="{StaticResource IconWeb}">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+        <Tab Title="Page3" Icon="{StaticResource IconForm}">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+    </TabBar> -->
+</Shell>

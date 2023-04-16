@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MauiShowcase.Pages.Collections.Models"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:collections="clr-namespace:MauiShowcase.Pages.Collections"
+             xmlns:cv="clr-namespace:MauiShowcase.Pages.Collections.ContentViews"
+             Title="Elenco"
+             x:Class="MauiShowcase.Pages.Collections.Index">
+    <Grid RowDefinitions="Auto,*" Background="#F5F5F5" Padding="10">
+        <SearchBar Placeholder="Cerca pokemon per nome..." Grid.Row="0" SearchCommand="{Binding SearchCommand}" SearchCommandParameter="{Binding Source={x:RelativeSource Self}, Path=Text}" Margin="0,10" Background="White" />
+
+        <material:TabView BackgroundColor="#F5F5F5" Grid.Row="1" TabPlacement="Bottom">
+            <material:TabView.TabHeaderItemTemplate>
+                <DataTemplate>
+                    <Button BackgroundColor="Transparent" BorderWidth="0" Padding="0" TextColor="Black" Margin="0,0,15,0" Text="{Binding Title}" Command="{Binding Command}">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" Binding="{Binding IsSelected}" Value="True">
+                                <Setter Property="TextColor" Value="{StaticResource Primary}" />
+                                <Setter Property="FontAttributes" Value="Bold" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </DataTemplate>
+            </material:TabView.TabHeaderItemTemplate>
+
+            <!-- Usiamo la CollectionView o la ListView perché alle altre view di layout (BindableLayout) manca la virtualizzazione: https://github.com/dotnet/maui/issues/12908 -->
+            <material:TabItem Title="CollectionView">
+                <material:TabItem.ContentTemplate>
+                    <DataTemplate>
+                        <cv:CollectionView Grid.Row="0" BindingContext="{Binding BindingContext, Source={RelativeSource AncestorType={x:Type ContentPage}}}" />
+                    </DataTemplate>
+                </material:TabItem.ContentTemplate>
+            </material:TabItem>
+            
+            <material:TabItem Title="ListView">
+                <material:TabItem.ContentTemplate>
+                    <DataTemplate>
+                        <cv:ListView BindingContext="{Binding BindingContext, Source={RelativeSource AncestorType={x:Type ContentPage}}}" />
+                    </DataTemplate>
+                </material:TabItem.ContentTemplate>
+            </material:TabItem>
+        </material:TabView>
+        
+        <ActivityIndicator Grid.RowSpan="2" Color="LightGray" InputTransparent="True" IsRunning="{Binding IsBusy}" WidthRequest="100" HeightRequest="100" />
+    </Grid>
+</ContentPage>

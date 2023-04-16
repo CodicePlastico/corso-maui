@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiShowcase.Pages.Layouts.FlexLayout">
+    <ContentView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Text" Value="View" />
+            <Setter Property="Background" Value="LightGray" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="WidthRequest" Value="100" />
+            <Setter Property="HeightRequest" Value="100" />
+        </Style>
+    </ContentView.Resources>
+    <ScrollView>
+        <FlexLayout AlignContent="Start" AlignItems="Start" Direction="Row" Wrap="Wrap" HorizontalOptions="Start" Margin="0,10">
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+            <Label />
+        </FlexLayout>
+    </ScrollView>
+</ContentView>

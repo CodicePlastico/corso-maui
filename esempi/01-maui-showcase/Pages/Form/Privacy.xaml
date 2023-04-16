@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               CanBeDismissedByTappingOutsideOfPopup="False"
+               Color="White"
+               x:Class="MauiShowcase.Pages.Form.Privacy">
+    <Border Stroke="Black">
+        <Grid RowDefinitions="Auto,*,Auto">
+            <Label Grid.Row="0" FontSize="24" Padding="20,10">Informativa privacy</Label>
+            <Line Grid.Row="0" BackgroundColor="Black" HeightRequest="1" VerticalOptions="End" />
+            <ScrollView Grid.Row="1">
+                <Label Padding="20" TextType="Html">
+                    <Label.Text>
+                        <![CDATA[
+                    Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Duis malesuada tellus ac ligula pulvinar, id dictum sem consectetur. Mauris consequat leo magna, vel pulvinar quam ultrices nec. Suspendisse sapien tortor, blandit non sapien iaculis, varius scelerisque purus. Maecenas ut neque sed lectus cursus bibendum sit amet nec ligula. Sed lectus diam, mollis ac tincidunt non, pellentesque consectetur tellus. Aliquam quis condimentum turpis. Nam vulputate dui quis orci cursus tristique. Etiam a erat purus.
+
+                    Nunc et odio in arcu ultrices venenatis quis ut leo. Donec a nisi urna.
+                    <ul>
+                        <li>Aliquam at arcu a mi pellentesque congue.</li>
+                        <li>Maecenas ut maximus lacus.</li>
+                        <li>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</li>
+                    </ul>
+                    
+                  Integer varius finibus dolor, <strong>ornare porttitor</strong> lorem rhoncus quis. Sed justo neque, feugiat posuere tortor a, fermentum blandit massa. Aliquam at nisl leo. Sed vulputate vehicula eros quis rutrum. Praesent congue commodo arcu. Aenean id ligula porttitor enim elementum ultrices. Donec eget sodales justo. Morbi sit amet gravida nulla. Morbi eleifend ultricies odio, commodo molestie massa ornare at.
+
+                  <blockquote>Donec vulputate laoreet malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras pharetra auctor orci, quis pretium lectus porta ut. Integer suscipit metus odio, eu bibendum tortor semper ullamcorper. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc sit amet est vitae lacus pretium interdum. Cras quis lobortis erat. Praesent hendrerit dui eget tempor commodo. Curabitur tincidunt mauris condimentum, faucibus nibh at, congue ipsum. Nullam et tristique tortor. Ut luctus sollicitudin viverra. Nullam a odio id nunc rhoncus dapibus nec id nulla. Proin suscipit risus eget mi tincidunt dignissim.</blockquote>
+
+                  Duis lacinia sed turpis eget posuere. Integer sollicitudin ante tincidunt magna gravida commodo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed sollicitudin odio non lectus mattis, et venenatis lorem malesuada. Pellentesque sit amet diam malesuada, dignissim ipsum ut, venenatis turpis. Mauris nec nisl ipsum. Aenean lacinia commodo dui, et cursus nulla auctor eu. In molestie, dolor ac facilisis sollicitudin, ex ex suscipit risus, at fringilla ipsum augue eu massa. Aliquam nec massa at orci vulputate consectetur eu id arcu. Fusce nec vulputate lorem, et hendrerit nibh. Ut porta massa nec urna laoreet, eu vulputate nisi maximus. Pellentesque nec pharetra turpis, quis posuere lorem. Nam vestibulum ante pellentesque ullamcorper rhoncus. Proin in massa at elit elementum semper sit amet non mauris. In hac habitasse platea dictumst.
+
+                  Morbi augue magna, consequat sed ex quis, ullamcorper vehicula nisi. Morbi sed congue ligula. Etiam suscipit, arcu eu rhoncus aliquet, nunc risus vehicula mi, faucibus egestas nisi ex vel purus. Cras gravida sem nec erat placerat, eu eleifend nunc efficitur. Proin sed nisl eros. Cras libero erat, congue vitae diam non, dictum lobortis quam. Aenean molestie mollis euismod. Nullam sagittis ipsum sit amet elit tristique lobortis.
+                    ]]>
+                    </Label.Text>
+                </Label>
+            </ScrollView>
+            <Border Grid.Row="2" Background="#fcfcfc" StrokeThickness="0" Padding="10">
+                <Button Grid.Row="2" Text="Ok, ho letto" WidthRequest="200" Command="{Binding DismissCommand}" />
+            </Border>
+        </Grid>
+    </Border>
+</toolkit:Popup>

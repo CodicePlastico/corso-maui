@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- Puoi ottenere i codici dei Glyph da questo sito: https://tabler-icons.io/ -->
+    <FontImageSource x:Key="IconWeb" FontFamily="TablerIcons" Color="Black" Glyph="&#xeb54;" />
+    <FontImageSource x:Key="IconPokemon" FontFamily="TablerIcons" Color="Black" Glyph="&#xeec1;" />
+    <FontImageSource x:Key="IconPokemonFallback" FontFamily="TablerIcons" Color="#F5F5F5" Glyph="&#xeec1;" Size="400" />
+    <FontImageSource x:Key="IconNew" FontFamily="TablerIcons" Color="Black" Glyph="&#xeaa4;" />
+    <FontImageSource x:Key="IconOpen" FontFamily="TablerIcons" Color="Black" Glyph="&#xeaad;" />
+    <FontImageSource x:Key="IconSave" FontFamily="TablerIcons" Color="Black" Glyph="&#xeb62;" />
+    <FontImageSource x:Key="IconExit" FontFamily="TablerIcons" Color="Black" Glyph="&#xeb0d;" />
+    <FontImageSource x:Key="IconCut" FontFamily="TablerIcons" Color="Black" Glyph="&#xeb1b;" />
+    <FontImageSource x:Key="IconCopy" FontFamily="TablerIcons" Color="Black" Glyph="&#xea7a;" />
+    <FontImageSource x:Key="IconPaste" FontFamily="TablerIcons" Color="Black" Glyph="&#xea6f;" />
+    <FontImageSource x:Key="IconHome" FontFamily="TablerIcons" Color="Black" Glyph="&#xeac1;" />
+    <FontImageSource x:Key="IconAccount" FontFamily="TablerIcons" Color="Black" Glyph="&#xef68;" />
+    <FontImageSource x:Key="IconZoomIn" FontFamily="TablerIcons" Color="Black" Glyph="&#xeb56;" />
+    <FontImageSource x:Key="IconZoomOut" FontFamily="TablerIcons" Color="Black" Glyph="&#xeb57;" />
+    <FontImageSource x:Key="IconMenu" FontFamily="TablerIcons" Color="Black" Glyph="&#xeeff;" />
+    <FontImageSource x:Key="IconFont" FontFamily="TablerIcons" Color="Black" Glyph="&#xebc5;" />
+    <FontImageSource x:Key="IconTable" FontFamily="TablerIcons" Color="Black" Glyph="&#xeba1;" />
+    <FontImageSource x:Key="IconForm" FontFamily="TablerIcons" Color="Black" Glyph="&#xf01a;" />
+    <FontImageSource x:Key="IconBarcode" FontFamily="TablerIcons" Color="Black" Glyph="&#xeb11;" />
+    <FontImageSource x:Key="IconTwincat" FontFamily="TablerIcons" Color="Black" Glyph="&#xeb20;" />
+    <FontImageSource x:Key="IconAlert" FontFamily="TablerIcons" Color="Black" Glyph="&#xea35;" />
+    <FontImageSource x:Key="IconViews" FontFamily="TablerIcons" Color="Black" Glyph="&#xea9a;" />
+    <FontImageSource x:Key="IconLayout" FontFamily="TablerIcons" Color="Black" Glyph="&#xef95;" />
+    <FontImageSource x:Key="IconCollection" FontFamily="TablerIcons" Color="Black" Glyph="&#xef40;" />
+    <FontImageSource x:Key="IconUranium" FontFamily="TablerIcons" Color="Black" Glyph="&#xf477;" />
+    <FontImageSource x:Key="IconWand" FontFamily="TablerIcons" Color="Black" Glyph="&#xebcb;" />
+    <FontImageSource x:Key="IconSun" FontFamily="TablerIcons" Color="Black" Glyph="&#xf236;" Size="400" />
+</ResourceDictionary>

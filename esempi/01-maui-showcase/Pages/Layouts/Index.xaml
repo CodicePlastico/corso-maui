@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:layout="clr-namespace:MauiShowcase.Pages.Layouts"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             x:Class="MauiShowcase.Pages.Layouts.Index">
+    <material:TabView BackgroundColor="White" Margin="10">
+        <material:TabView.TabHeaderItemTemplate>
+            <DataTemplate>
+                <Button BackgroundColor="White" BorderWidth="0" TextColor="Black" Margin="0,0,5,0" Text="{Binding Title}" Command="{Binding Command}">
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button" Binding="{Binding IsSelected}" Value="True">
+                            <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                            <Setter Property="TextColor" Value="White" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+            </DataTemplate>
+        </material:TabView.TabHeaderItemTemplate>
+
+        <material:TabItem Title="VerticalStackLayout" ContentTemplate="{DataTemplate layout:VerticalStackLayout}" />
+        <material:TabItem Title="HorizontalStackLayout" ContentTemplate="{DataTemplate layout:HorizontalStackLayout}" />
+        <material:TabItem Title="FlexLayout" ContentTemplate="{DataTemplate layout:FlexLayout}" />
+        <material:TabItem Title="Grid" ContentTemplate="{DataTemplate layout:Grid}" />
+        <material:TabItem Title="DockLayout" ContentTemplate="{DataTemplate layout:DockLayout}" />
+        <material:TabItem Title="AbsoluteLayout" ContentTemplate="{DataTemplate layout:AbsoluteLayout}" />
+        <!--
+        <material:TabItem Title="UniformItemsLayout" ContentTemplate="{DataTemplate layout:UniformItemsLayout}" />
+        -->
+
+    </material:TabView>
+</ContentPage>

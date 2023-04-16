@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="EsercizioImpaginazione.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:EsercizioImpaginazione.Pages"
+    Title="Esercizio impaginazione"
+    FlyoutWidth="200"
+    Shell.FlyoutBehavior="Locked">
+
+    <ShellContent
+        Title="Segnalazioni"
+        Route="Segnalazioni"
+        ContentTemplate="{DataTemplate pages:Segnalazioni}" />
+
+    <ShellContent
+        Title="Variabili"
+        Route="Variabili"
+        ContentTemplate="{DataTemplate pages:Variabili}" />
+
+    <ShellContent
+        Title="Manuale"
+        Route="Manuale"
+        ContentTemplate="{DataTemplate pages:Manuale}" />
+
+    <ShellContent
+        Title="Scarti"
+        Route="Scarti"
+        ContentTemplate="{DataTemplate pages:Scarti}" />
+
+</Shell>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiShowcase.Pages.Alerts.Index">
+    <!-- DisplayAlert, Display..., Snackbar, Toast, Popup, custom -->
+    <!-- https://learn.microsoft.com/en-us/dotnet/communitytoolkit/maui/views/popup -->
+
+    <HorizontalStackLayout Spacing="10" Margin="10" VerticalOptions="Start">
+        <Button Text="DisplayAlert" Clicked="OnShowDisplayAlert" />
+        <Button Text="DisplayPrompt" Clicked="OnShowDisplayPrompt" />
+        <Button Text="DisplayActionSheet" Clicked="OnShowDisplayActionSheet" />
+        <Button Text="Snackbar" Clicked="OnShowSnackbar" />
+        <Button Text="Toast" Clicked="OnShowToast" />
+        <Button Text="Popup" Clicked="OnShowPopup" />
+        <Button Text="Window" Clicked="OnShowWindow" />
+    </HorizontalStackLayout>
+</ContentPage>

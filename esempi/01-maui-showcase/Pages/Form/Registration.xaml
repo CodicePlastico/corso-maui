@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:behaviors="clr-namespace:MauiShowcase.Pages.Form.Behaviors"
+             xmlns:converters="clr-namespace:MauiShowcase.Pages.Form.Converters"
+             x:Class="MauiShowcase.Pages.Form.Registration">
+    <ContentView.Resources>
+        <Style x:Key="InvalidEntry" TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="#10FF0000" />
+        </Style>
+        <Style x:Key="InvalidLabel" TargetType="Label">
+            <Setter Property="TextColor" Value="Red" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <converters:AllTrueMultiConverter x:Key="AllTrueMultiConverter" />
+    </ContentView.Resources>
+    <VerticalStackLayout>
+        <Label Text="Email" />
+        <Entry x:Name="Email" IsSpellCheckEnabled="false">
+            <Entry.Behaviors>
+                <toolkit:EmailValidationBehavior x:Name="EmailValidator" DecorationFlags="Trim" InvalidStyle="{StaticResource InvalidEntry}" Flags="ValidateOnUnfocusing" />
+            </Entry.Behaviors>
+        </Entry>
+        <Label Text="L'email non è valida" Style="{StaticResource InvalidLabel}" IsVisible="{Binding IsNotValid, Source={Reference EmailValidator}}" />
+
+        <Label Text="Password" />
+        <Entry x:Name="Password" IsPassword="True" MaxLength="30">
+            <Entry.Behaviors>
+                <toolkit:CharactersValidationBehavior x:Name="PasswordValidator" MinimumLength="8" MaximumLength="30" MinimumCharacterTypeCount="4" CharacterType="LowercaseLetter,UppercaseLetter,Digit,NonAlphanumericSymbol" InvalidStyle="{StaticResource InvalidEntry}" Flags="ValidateOnUnfocusing" />
+            </Entry.Behaviors>
+        </Entry>
+        <Label Text="La password deve essere di almeno 8 caratteri e contenere maiuscole, minuscole, un numero e un simbolo" Style="{StaticResource InvalidLabel}" IsVisible="{Binding IsNotValid, Source={Reference PasswordValidator}}" />
+
+        <Label x:Name="ConfirmPassword" Text="Ripeti password" />
+        <Entry IsPassword="True" MaxLength="30">
+            <Entry.Behaviors>
+                <toolkit:RequiredStringValidationBehavior x:Name="ConfirmPasswordValidator" ExactMatch="True" RequiredString="{Binding Text, Source={Reference Password}}" InvalidStyle="{StaticResource InvalidEntry}" Flags="ValidateOnUnfocusing" />
+            </Entry.Behaviors>
+        </Entry>
+        <Label Text="La password non corrisponde" Style="{StaticResource InvalidLabel}" IsVisible="{Binding IsNotValid, Source={Reference ConfirmPasswordValidator}}" />
+
+        <HorizontalStackLayout>
+            <CheckBox x:Name="Consent" />
+            <Label Margin="0" VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                   <TapGestureRecognizer Command="{Binding OpenPrivacyCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Accetto l'" />
+                        <Span Text="informativa privacy" TextColor="{StaticResource Primary}" TextDecorations="Underline"></Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </HorizontalStackLayout>
+
+        <Label Text="Data di nascita" />
+        <DatePicker x:Name="DateOfBirth" Format="dd/MM/yyyy" />
+
+        <Label Text="Soggetto" />
+        <Picker x:Name="Subject" VerticalOptions="Center" SelectedIndex="0">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Privato</x:String>
+                    <x:String>Azienda</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Label Text="Codice fiscale" />
+        <Entry x:Name="FiscalCode" MaxLength="16">
+            <Entry.Behaviors>
+                <behaviors:FiscalCodeValidationBehavior x:Name="FiscalCodeValidator" InvalidStyle="{StaticResource InvalidEntry}" Flags="ValidateOnUnfocusing" />
+            </Entry.Behaviors>
+        </Entry>
+        <Label Text="Il codice fiscale non è valido" Style="{StaticResource InvalidLabel}" IsVisible="{Binding IsNotValid, Source={Reference FiscalCodeValidator}}" />
+
+        <Button x:Name="Submit" Text="Registrati" Clicked="SubmitForm" Margin="0,20">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource AllTrueMultiConverter}" Mode="TwoWay">
+                    <Binding Path="IsValid" Source="{Reference EmailValidator}" />
+                    <Binding Path="IsValid" Source="{Reference PasswordValidator}" />
+                    <Binding Path="IsValid" Source="{Reference ConfirmPasswordValidator}" />
+                    <Binding Path="IsValid" Source="{Reference FiscalCodeValidator}" />
+                    <Binding Path="IsChecked" Source="{Reference Consent}" />
+                </MultiBinding>
+            </Button.IsEnabled>
+        </Button>
+    </VerticalStackLayout>
+</ContentView>

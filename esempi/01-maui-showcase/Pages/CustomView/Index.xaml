@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiShowcase.Pages.CustomView.Index"
+             xmlns:cv="clr-namespace:MauiShowcase.Pages.CustomView">
+    <VerticalStackLayout Padding="20" VerticalOptions="Center">
+        <Border HorizontalOptions="Center" StrokeShape="RoundRectangle 10" Padding="20">
+            <cv:MeterView HorizontalOptions="Center" VerticalOptions="Center"
+                          Value="{Binding Source={Reference Slider}, Path=Value}"
+                          Maximum="{Binding Source={Reference Slider}, Path=Maximum}"
+                          Minimum="{Binding Source={Reference Slider}, Path=Minimum}"
+                          />
+        </Border>
+        <HorizontalStackLayout HorizontalOptions="Center" Margin="10">
+            <Label Text="{Binding Source={Reference Slider}, Path=Minimum}" VerticalTextAlignment="Center"></Label>
+            <Slider x:Name="Slider" Minimum="0" Maximum="100" Value="75" WidthRequest="200" Margin="10" />
+            <Label Text="{Binding Source={Reference Slider}, Path=Maximum}" VerticalTextAlignment="Center"></Label>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

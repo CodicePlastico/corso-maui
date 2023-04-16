@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiShowcase.Pages.Layouts.AbsoluteLayout">
+    <ContentView.Resources>
+        <Style TargetType="Image">
+            <Setter Property="Source" Value="pin.png" />
+        </Style>
+    </ContentView.Resources>
+    <ScrollView Orientation="Both">
+        <AbsoluteLayout>
+            <Image Source="world.jpg" AbsoluteLayout.LayoutBounds="0,0,1100,500" />
+            <Image AbsoluteLayout.LayoutBounds="70,50,30,30" />
+            <Image AbsoluteLayout.LayoutBounds="300,250,30,30" />
+            <Image AbsoluteLayout.LayoutBounds="788,245,30,30" />
+            <Image AbsoluteLayout.LayoutBounds="460,75,30,30" />
+            <Image AbsoluteLayout.LayoutBounds="895,110,30,30" />
+            <Image AbsoluteLayout.LayoutBounds="625,320,30,30" />
+            <Image AbsoluteLayout.LayoutBounds="440,170,30,30" />
+            <Image AbsoluteLayout.LayoutBounds="900,310,30,30" />
+            <Image AbsoluteLayout.LayoutBounds="1000,400,30,30" />
+        </AbsoluteLayout>
+    </ScrollView>
+</ContentView>

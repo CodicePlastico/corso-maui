@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             x:Class="MauiShowcase.Pages.Home"
+             Title="Home">
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Grid ColumnDefinitions="150,200" HorizontalOptions="Center" ColumnSpacing="50">
+                <Image
+                    Grid.Column="0"
+                    Source="dotnet_bot.png"
+                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    HorizontalOptions="Center" />
+
+                <zxing:BarcodeGeneratorView
+                    Grid.Column="1"
+                    ForegroundColor="Black"
+                    Value="https://github.com/CodicePlastico/corso-maui"
+                    Format="QrCode" />
+            </Grid>
+            <Label FontSize="34" HorizontalOptions="Center" Text="github.com/CodicePlastico/corso-maui" />
+
+            <Label
+                Text="Welcome to .NET Multi-platform App UI"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Click me"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Bindable Property</Title>
+            <Shortcut>bprop</Shortcut>
+            <Description>MAUI BindableProperty declaration code snippet</Description>
+            <Author>banditoth.hu</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>PropertyName</ID>
+                    <ToolTip>The property's name</ToolTip>
+                    <Default>Foo</Default>
+                </Literal>
+                <Literal>
+                    <ID>Type</ID>
+                    <ToolTip>The type of the property</ToolTip>
+                    <Default>object</Default>
+                </Literal>
+                <Literal>
+                    <ID>DefaultValue</ID>
+                    <ToolTip>The default value of the property</ToolTip>
+                    <Default>null</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[
+        public static readonly BindableProperty $PropertyName$Property = BindableProperty.Create(
+                                        propertyName: nameof($PropertyName$),
+                                        returnType: typeof($Type$),
+                                        declaringType: typeof(View),
+                                        defaultValue: $DefaultValue$);
+ 
+        public $Type$ $PropertyName$
+        {
+            get { return ($Type$)GetValue($PropertyName$Property); }
+            set { SetValue($PropertyName$Property, value); }
+        }
+        $end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

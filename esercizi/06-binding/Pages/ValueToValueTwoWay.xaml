@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EsercizioBinding.Pages.ValueToValueTwoWay">
+
+    <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+        <Label Text="Metti in binding la proprietà Value del primo Slider con la proprietà Value del secondo Slider, in modo che il Value di ciascuno dei due sia sincronizzato all'altro, cioè si aggiorni quando l'altro cambia." />
+        
+        <Slider Minimum="0" Maximum="100" Value="20" />
+        <Slider Minimum="0" Maximum="100" Value="20" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

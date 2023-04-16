@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:MauiShowcase.Pages.CustomView.Converters"
+             x:Class="MauiShowcase.Pages.CustomView.MeterView"
+             WidthRequest="230" HeightRequest="110" MaximumWidthRequest="230" MaximumHeightRequest="110">
+    <ContentView.Resources>
+        <converters:MultiDoubleToStrokeDashArrayConverter x:Key="multiDoubleToStrokeDashArrayConverter" />
+        <converters:MultiDoubleToColorConverter x:Key="multiDoubleToColorConverter" />
+        <converters:MultiDoubleToDangerConverter x:Key="multiDoubleToDangerConverter" />
+    </ContentView.Resources>
+    <Grid>
+        <!-- Create an elliptical arc: https://learn.microsoft.com/en-us/dotnet/desktop/wpf/graphics-multimedia/how-to-create-an-elliptical-arc?view=netframeworkdesktop-4.8 -->
+        <Path StrokeThickness="30">
+            <Path.Stroke>
+                <MultiBinding Converter="{StaticResource multiDoubleToColorConverter}" ConverterParameter="0.4">
+                    <Binding Path="Value" />
+                    <Binding Path="Minimum" />
+                    <Binding Path="Maximum" />
+                </MultiBinding>
+            </Path.Stroke>
+            <Path.StrokeDashArray>
+                <MultiBinding Converter="{StaticResource multiDoubleToStrokeDashArrayConverter}" ConverterParameter="10">
+                    <Binding Path="Value" />
+                    <Binding Path="Minimum" />
+                    <Binding Path="Maximum" />
+                </MultiBinding>
+            </Path.StrokeDashArray>
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="0,100">
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <ArcSegment Size="100,90" RotationAngle="0" IsLargeArc="True" SweepDirection="Clockwise" Point="200,100" />
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+
+        <Label VerticalTextAlignment="End" HorizontalTextAlignment="Center" FontSize="40" Text="{Binding Value, StringFormat='{0:0}'}">
+            <Label.Triggers>
+                <DataTrigger TargetType="Label" Value="True">
+                    <DataTrigger.Binding>
+                        <MultiBinding Converter="{StaticResource multiDoubleToDangerConverter}" ConverterParameter="0.2">
+                            <Binding Path="Value" />
+                            <Binding Path="Minimum" />
+                            <Binding Path="Maximum" />
+                        </MultiBinding>
+                    </DataTrigger.Binding>
+                    <Setter Property="TextColor" Value="DarkRed" />
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
+    </Grid>
+</ContentView>

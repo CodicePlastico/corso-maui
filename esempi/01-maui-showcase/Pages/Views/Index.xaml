@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:MauiShowcase.Pages.Views"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MauiShowcase.Pages.Views.Index">
+    <ContentPage.Resources>
+        <Style TargetType="FlexLayout">
+            <Setter Property="Wrap" Value="Wrap" />
+            <Setter Property="AlignItems" Value="Start" />
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label Text="Form" FontSize="20" Margin="10,10,0,0" />
+            <FlexLayout>
+                <views:ViewContainer Title="Label" Description="Visualizza testo, anche multilinea">
+                    <Label Text="There's no place like 127.0.0.1" FontAttributes="Italic" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="SearchBar" Description="Include un bottone per avviare la ricerca">
+                    <SearchBar HeightRequest="40" Background="White" Placeholder="Digita qualcosa..." />
+                </views:ViewContainer>
+                <views:ViewContainer Title="Entry" Description="Casella di testo a singola linea">
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="10">
+                        <Entry HeightRequest="40" Background="White" Placeholder="Digita qualcosa..." />
+                        <Entry HeightRequest="40" IsPassword="True" Background="White" Placeholder="Password..." />
+                    </VerticalStackLayout>
+                </views:ViewContainer>
+                <views:ViewContainer Title="Editor" Description="Casella di testo multilinea">
+                    <Editor HeightRequest="110" Background="White" Placeholder="Digita qualcosa..." />
+                </views:ViewContainer>
+                <views:ViewContainer Title="Checkbox" Description="Casella di spunta">
+                    <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <CheckBox x:Name="MyCheckbox" Margin="0" />
+                        <Label Text="Seleziona" VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ToggleCheckbox" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </HorizontalStackLayout>
+                </views:ViewContainer>
+                <views:ViewContainer Title="RadioButton" Description="Opzioni mutualmente esclusive">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <RadioButton Margin="0" GroupName="Group1" Content="Scelta1" Value="1" />
+                        <RadioButton Margin="0" GroupName="Group2" Content="Scelta2" Value="2" />
+                    </VerticalStackLayout>
+                </views:ViewContainer>
+                <views:ViewContainer Title="Switch" Description="Per indicare l'attivazione di qualcosa">
+                    <Switch Margin="60,0,0,0" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="Picker" Description="Selezione di un valore da una lista">
+                    <Picker Background="White" Title="Seleziona..." Margin="0,52,0,0" WidthRequest="142" SelectedItem="Rosso" ItemDisplayBinding="{Binding .}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Rosso</x:String>
+                                <x:String>Blu</x:String>
+                                <x:String>Verde</x:String>
+                                <x:String>Giallo</x:String>
+                                <x:String>Arancio</x:String>
+                                <x:String>Viola</x:String>
+                                <x:String>Marrone</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </views:ViewContainer>
+                <views:ViewContainer Title="DatePicker" Description="Selettore della data da calendario">
+                    <DatePicker Background="White" Margin="45,0,0,0" Format="dd/MM/yyyy" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="TimePicker" Description="Selettore dell'orario">
+                    <TimePicker Background="White" Margin="-25,10,-30,0" Format="HH:mm" Scale="0.75" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="Stepper" Description="Selettore numerico">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="{Binding Source={Reference Stepper}, Path=Value}" VerticalTextAlignment="Center" HorizontalOptions="Center" FontSize="40" />
+                        <Stepper x:Name="Stepper" Background="White" Minimum="0" Maximum="100" Increment="5" Value="20" />
+                    </VerticalStackLayout>
+                </views:ViewContainer>
+                <views:ViewContainer Title="Slider" Description="Selettore di un valore in un intervallo">
+                    <Slider Minimum="0" Maximum="100" Value="20" VerticalOptions="Center" Margin="10" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="Button" Description="Un bottone">
+                    <Button Text="Cliccami" VerticalOptions="Center" HorizontalOptions="Center" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="ImageButton" Description="Bottone da immagine">
+                    <ImageButton Source="button.png" Clicked="Button_Clicked" HeightRequest="120" Background="Transparent" VerticalOptions="Center" HorizontalOptions="Center" />
+                </views:ViewContainer>
+            </FlexLayout>
+
+            <Label Text="Grafica e contenuto" FontSize="20" Margin="10,10,0,0" />
+            <FlexLayout>
+                <views:ViewContainer Title="Border" Description="Una cornice per un'altra view">
+                    <Border StrokeShape="RoundRectangle 10" Background="White" WidthRequest="90" HeightRequest="90" VerticalOptions="Center" Margin="10" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="BoxView" Description="Un riquadro colorato">
+                    <BoxView Color="MediumPurple" WidthRequest="90" HeightRequest="90" VerticalOptions="Center" Margin="10" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="Expander" Description="Clicca per mostrare altro contenuto">
+                    <toolkit:Expander Margin="-15,0,10,0">
+                        <toolkit:Expander.Header>
+                            <Label Text="Per saperne di più" HorizontalOptions="Center" />
+                        </toolkit:Expander.Header>
+                        <Label Text="Ecco altre informazioni" HorizontalOptions="Center" Margin="0,30" Padding="5,30" BackgroundColor="Pink" />
+                    </toolkit:Expander>
+                </views:ViewContainer>
+                <views:ViewContainer Title="ProgressBar" Description="Indicatore di progresso">
+                    <ProgressBar Progress="0.4" Margin="10" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="ActivityIndicator" Description="Indicatore di caricamento">
+                    <ActivityIndicator Color="DarkGray" HeightRequest="60" WidthRequest="60" IsRunning="True" VerticalOptions="Center" HorizontalOptions="Center" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="Image" Description="Immagine, da risorsa o da URL">
+                    <Image Source="rocketsurgery.jpg" HeightRequest="130" Margin="18" VerticalOptions="Start" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="FontImageSource" Description="Da usare come Source di un'Image">
+                    <Image Source="{StaticResource IconSun}" HeightRequest="100" Margin="0,0,0,20" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="DrawingView" Description="Disegnaci sopra!">
+                    <toolkit:DrawingView HeightRequest="150" VerticalOptions="Start" BackgroundColor="#f5ffff" LineColor="Red" LineWidth="1" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="GraphicsView" Description="Quadro per renderizzare grafica">
+                    <views:CubeView HeightRequest="150" VerticalOptions="Start" BackgroundColor="Black" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="MediaElement" Description="Riproduce video">
+                    <toolkit:MediaElement HeightRequest="150" Margin="0,0,0,40" ShouldAutoPlay="False" Aspect="AspectFill" Source="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" ShouldShowPlaybackControls="True" />
+                </views:ViewContainer>
+                <!--
+                <views:ViewContainer Title="AvatarView" Description="Immagine o iniziali dell'utente">
+                    <toolkit:AvatarView HeightRequest="50" WidthRequest="50" VerticalOptions="Center" BackgroundColor="DarkRed" Text="CP" Margin="0,0,0,30" />
+                </views:ViewContainer>
+                -->
+                <views:ViewContainer Title="WebView" Description="Un browser integrato nell'app">
+                    <WebView Source="https://www.w3schools.com/howto/tryhow_make_a_website.htm" HeightRequest="150" VerticalOptions="Start" />
+                </views:ViewContainer>
+            </FlexLayout>
+
+            <Label Text="Primitive di disegno" FontSize="20" Margin="10,10,0,0" />
+            <FlexLayout>
+                <views:ViewContainer Title="Rectangle" Description="Può avere sfondo e bordo">
+                    <Rectangle Fill="Orange" Stroke="Brown" StrokeThickness="4" StrokeDashArray="1,1,2,1" HeightRequest="90" WidthRequest="90" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="RoundRectangle" Description="Può avere sfondo e bordo">
+                    <RoundRectangle Fill="Orange" Stroke="Brown" StrokeThickness="4" StrokeDashArray="1,1,2,1" HeightRequest="90" WidthRequest="90" CornerRadius="20" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="Ellipse" Description="Può avere sfondo e bordo">
+                    <Ellipse Fill="Orange" Stroke="Brown" StrokeThickness="4" StrokeDashArray="1,1,2,1" HeightRequest="90" WidthRequest="110" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="Polygon" Description="Può avere sfondo e bordo">
+                    <Polygon Points="0,50 90,85 80,0" Fill="Orange" Stroke="Brown" StrokeThickness="4" StrokeDashArray="1,1,2,1" HeightRequest="90" WidthRequest="110" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="Line" Description="Una retta, da usare come separatore">
+                    <Line X1="0" X2="150" Y1="40" Y2="40" Stroke="Brown" StrokeThickness="4" StrokeDashArray="1,1,2,1" HeightRequest="90" WidthRequest="160" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="Polyline" Description="Una spezzata">
+                    <Polyline Points="10,90 60,10 60,60 90,50" Stroke="Brown" StrokeThickness="4" StrokeDashArray="1,1,2,1" HeightRequest="90" WidthRequest="110" />
+                </views:ViewContainer>
+                <views:ViewContainer Title="Path" Description="Linea curva, per disegni vettoriali">
+                    <Path Data="M 10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80" Stroke="Brown" StrokeThickness="4" StrokeDashArray="1,1,2,1" HeightRequest="90" WidthRequest="110" Margin="0,-30,0,0" />
+                </views:ViewContainer>
+            </FlexLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

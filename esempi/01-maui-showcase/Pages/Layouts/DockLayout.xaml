@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MauiShowcase.Pages.Layouts.DockLayout">
+    <toolkit:DockLayout VerticalSpacing="10" HorizontalSpacing="10" Margin="10" Background="White">
+        <Label toolkit:DockLayout.DockPosition="Top" Text="Top" HorizontalTextAlignment="Center" Background="LightGray" Padding="10" />
+        <Label toolkit:DockLayout.DockPosition="Bottom" Text="Bottom" HorizontalTextAlignment="Center" Background="LightGray" Padding="10" />
+        <Label toolkit:DockLayout.DockPosition="Right" Text="Right" VerticalTextAlignment="Center" Background="LightGray" Padding="20" />
+        <Label toolkit:DockLayout.DockPosition="Left" Text="Left" VerticalTextAlignment="Center" Background="LightGray" Padding="20" />
+        <Label Text="None" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Background="LightGray" Padding="10" />
+    </toolkit:DockLayout>
+</ContentView>

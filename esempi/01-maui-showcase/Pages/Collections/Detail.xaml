@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MauiShowcase.Pages.Collections.Models"
+             xmlns:rcv="clr-namespace:ReorderableCollectionView.Maui;assembly=ReorderableCollectionView.Maui"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:converter="clr-namespace:MauiShowcase.Pages.Collections.Converters"
+             x:Class="MauiShowcase.Pages.Collections.Detail"
+             Title="Dettaglio">
+    <ContentPage.Resources>
+        <converter:ArrayToStringConverter x:Key="ArrayToStringConverter" />
+        <converter:TypeToColorConverter x:Key="TypeToColorConverter" />
+        <toolkit:TextCaseConverter x:Key="TextCaseConverter" Type="FirstUpperRestLower" />
+        <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        <Style TargetType="Line">
+            <Setter Property="BackgroundColor" Value="LightGray" />
+            <Setter Property="HeightRequest" Value="1" />
+            <Setter Property="VerticalOptions" Value="Start" />
+            <Setter Property="Grid.ColumnSpan" Value="2" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior Command="{Binding BackCommand}" />
+    </Shell.BackButtonBehavior>
+    <ScrollView>
+        <Grid RowDefinitions="Auto,*" ColumnDefinitions="250,*" Padding="10">
+            <Label Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding Pokemon.Name, Converter={StaticResource TextCaseConverter}}" FontSize="26" />
+            <Image Grid.Row="1" Grid.Column="0" Source="{Binding Pokemon.ImageUrl, FallbackValue={StaticResource IconPokemonFallback}}" IsVisible="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}" VerticalOptions="Start" Margin="0,0,20,0" />
+
+            <Grid Grid.Row="1" Grid.Column="1" IsVisible="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}" RowSpacing="10" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="100,*">
+                <!-- ID -->
+                <Label Text="Numero" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" FontAttributes="Bold" Margin="0,0,0,20" />
+                <Label Text="{Binding Pokemon.Id, StringFormat='#{0:0000}'}" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" Margin="0,0,0,20" FontAttributes="Bold" />
+
+                <!-- Types -->
+                <Label Text="Types" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" FontAttributes="Bold" />
+                <HorizontalStackLayout Grid.Row="1" Grid.Column="1" BindableLayout.ItemsSource="{Binding Pokemon.Types}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="0" Background="{Binding Type.Name, Converter={StaticResource TypeToColorConverter}}" StrokeThickness="0">
+                                <Label Padding="5" Text="{Binding .}" TextColor="White" Margin="5,0" />
+                            </Border>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </HorizontalStackLayout>
+
+                <!-- Stats -->
+                <Label Text="Stats" Grid.Row="2" Grid.Column="0" VerticalOptions="Start" FontAttributes="Bold" />
+                <VerticalStackLayout Grid.Row="2" Grid.Column="1" BindableLayout.ItemsSource="{Binding Pokemon.Stats}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <HorizontalStackLayout>
+                                <Label Text="{Binding Path=Stat.Name}" WidthRequest="120" Margin="5,0" />
+                                <Label Text="{Binding Path=BaseStat}" WidthRequest="40" HorizontalTextAlignment="End" Margin="5,0" />
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+
+                <!-- Weight -->
+                <Label Text="Weight" Grid.Row="3" Grid.Column="0" VerticalOptions="Start" FontAttributes="Bold" />
+                <Label Text="{Binding Pokemon.Weight}" Grid.Row="3" Grid.Column="1" VerticalOptions="Start" Margin="5,0" />
+
+                <!-- Height -->
+                <Label Text="Height" Grid.Row="4" Grid.Column="0" VerticalOptions="Start" FontAttributes="Bold" />
+                <Label Text="{Binding Pokemon.Height}" Grid.Row="4" Grid.Column="1" VerticalOptions="Start" Margin="5,0" />
+
+                <!-- Abilities -->
+                <Label Text="Abilities" Grid.Row="5" Grid.Column="0" VerticalOptions="Start" FontAttributes="Bold" />
+                <HorizontalStackLayout Grid.Row="5" Grid.Column="1" BindableLayout.ItemsSource="{Binding Pokemon.Abilities}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Label Text="{Binding Path=Ability.Name}" Margin="5,0" />
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </HorizontalStackLayout>
+
+                <!-- Moves -->
+                <Label Text="Moves" Grid.Row="6" Grid.Column="0" VerticalOptions="Start" FontAttributes="Bold" />
+                <Label Text="{Binding Pokemon.Moves, Converter={StaticResource ArrayToStringConverter}}" Grid.Row="6" Grid.Column="1" VerticalOptions="Start" Margin="5,0" />
+
+                <!-- Line separators -->
+                <Line Grid.Row="2"/>
+                <Line Grid.Row="3"/>
+                <Line Grid.Row="4"/>
+                <Line Grid.Row="5"/>
+                <Line Grid.Row="6"/>
+            </Grid>
+            <ActivityIndicator Grid.RowSpan="2" Grid.ColumnSpan="2" Color="LightGray" InputTransparent="True" IsRunning="{Binding IsBusy}" WidthRequest="100" HeightRequest="100" />
+        </Grid>
+        
+    </ScrollView>
+</ContentPage>

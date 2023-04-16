@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Esercizio Grid"
+             x:Class="EsercizioGrid.MainPage">
+
+    <Grid RowDefinitions="Auto,*,2*,100" ColumnDefinitions="100,*" RowSpacing="2" ColumnSpacing="2">
+        <!--#region Aggiungo dei Border per rendere visibili i contorni delle celle -->
+        <Border Grid.Row="0" Grid.Column="0" />
+        <Border Grid.Row="1" Grid.Column="0" />
+        <Border Grid.Row="2" Grid.Column="0" />
+        <Border Grid.Row="3" Grid.Column="0" />
+        <Border Grid.Row="0" Grid.Column="1" />
+        <Border Grid.Row="1" Grid.Column="1" />
+        <Border Grid.Row="2" Grid.Column="1" />
+        <Border Grid.Row="3" Grid.Column="1" />
+        <!--#endregion-->
+        
+        
+        <Label Text="Rosso" TextColor="White" Background="Red" />
+        <Label Text="Blu" TextColor="White" Background="Blue" />
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BindableProperties.Pages.LabelContentView">
+    <VerticalStackLayout>
+        <Label 
+            FontSize="100"
+            Text="{Binding Text, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center">
+            
+            <Label.Shadow>
+                <Shadow Brush="Black" Offset="5,5" Opacity="0.5" />
+            </Label.Shadow>
+        </Label>
+    </VerticalStackLayout>
+</ContentView>

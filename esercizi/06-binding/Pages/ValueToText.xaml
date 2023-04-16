@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EsercizioBinding.Pages.ValueToText">
+
+    <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+        <Label Text="Metti in binding la proprietà Text della Label con la proprietà Value dello Slider, in modo che la Label visualizzi il valore INTERO attuale dello slider ogni volta che cambia. Suggerimento: dovrai usare StringFormat" />
+
+        <Label Text="20" FontSize="30" HorizontalTextAlignment="Center" />
+        <Slider Minimum="0" Maximum="100" Value="20" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

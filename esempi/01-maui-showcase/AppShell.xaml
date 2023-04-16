@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiShowcase.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:MauiShowcase.Pages"
+    xmlns:windows="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;assembly=Microsoft.Maui.Controls"
+    Title="MAUI Showcase"
+    FlyoutBehavior="Locked"
+    FlyoutWidth="200"
+    Shell.BackgroundColor="White"
+    Shell.TitleColor="Black"
+    Shell.ForegroundColor="Black">
+
+    <!-- <Shell.TitleView>
+        Qui barra del titolo personalizzata
+    </Shell.TitleView> -->
+
+    <ShellContent
+        Title="Home"
+        Route="Home"
+        Icon="{StaticResource IconHome}"
+        ContentTemplate="{DataTemplate pages:Home}" />
+
+    <ShellContent
+        Title="Menu"
+        Route="Menu"
+        Icon="{StaticResource IconMenu}"
+        ContentTemplate="{DataTemplate pages:Menu.Index}" />
+
+    <ShellContent
+        Title="Form"
+        Route="Form"
+        Icon="{StaticResource IconForm}"
+        ContentTemplate="{DataTemplate pages:Form.Index}" />
+
+    <ShellContent
+        Title="Views"
+        Route="Views"
+        Icon="{StaticResource IconViews}"
+        ContentTemplate="{DataTemplate pages:Views.Index}" />
+
+    <ShellContent
+        Title="Views di terze parti"
+        Route="ThirdParty"
+        Icon="{StaticResource IconUranium}"
+        ContentTemplate="{DataTemplate pages:ThirdParty.Index}" />
+
+    <ShellContent
+        Title="ContentView"
+        Route="CustomView"
+        Icon="{StaticResource IconWand}"
+        ContentTemplate="{DataTemplate pages:CustomView.Index}" />
+
+    <ShellContent
+        Title="Layouts"
+        Route="Layouts"
+        Icon="{StaticResource IconLayout}"
+        ContentTemplate="{DataTemplate pages:Layouts.Index}" />
+
+    <ShellContent
+        Title="Collections"
+        Route="CollectionsIndex"
+        Icon="{StaticResource IconPokemon}"
+        ContentTemplate="{DataTemplate pages:Collections.Index}" />
+
+    <ShellContent
+        Title="Alerts"
+        Route="Alerts"
+        Icon="{StaticResource IconAlert}"
+        ContentTemplate="{DataTemplate pages:Alerts.Index}" />
+
+    <ShellContent
+        Title="Barcode"
+        Route="Barcode"
+        Icon="{StaticResource IconBarcode}"
+        ContentTemplate="{DataTemplate pages:Barcode.Index}" />
+
+    <ShellContent
+        Title="Risorse"
+        Route="Font"
+        Icon="{StaticResource IconFont}"
+        ContentTemplate="{DataTemplate pages:Font.Index}" />
+</Shell>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             x:Class="MauiShowcase.Pages.ThirdParty.TreeView">
+    <Grid>
+        <ScrollView>
+            <material:TreeView ItemsSource="{Binding Nodes}" Margin="10">
+                <material:TreeView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Spacing="5">
+                            <Image Source="{StaticResource IconOpen}" IsVisible="{Binding Children.Count}" />
+                            <Label Text="{Binding Name}" FontAttributes="Bold">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding Children.Count}" Value="0">
+                                        <Setter Property="Margin" Value="40,0,0,0" />
+                                        <Setter Property="FontAttributes" Value="None" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                            <Label Text="{Binding Children.Count, StringFormat='({0})'}" IsVisible="{Binding Children.Count}" />
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </material:TreeView.ItemTemplate>
+            </material:TreeView>
+        </ScrollView>
+        <ActivityIndicator IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center" />
+    </Grid>
+</ContentView>

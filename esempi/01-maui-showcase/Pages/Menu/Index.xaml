@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:windows="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:menu="clr-namespace:MauiShowcase.Pages.Menu"
+             Shell.NavBarHasShadow="False"
+             Shell.FlyoutBehavior="Disabled"
+             x:Class="MauiShowcase.Pages.Menu.Index">
+    <Shell.TitleView>
+        <Grid HeightRequest="1" />
+    </Shell.TitleView>
+    <ContentPage.BindingContext>
+        <menu:IndexViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Login" IconImageSource="{StaticResource IconAccount}" Command="{Binding NavigateCommand}" CommandParameter="//Home" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="File" windows:VisualElement.AccessKey="F">
+            <MenuFlyoutSubItem Text="Nuovo" IconImageSource="{StaticResource IconNew}">
+                <MenuFlyoutItem Text="Modello" />
+                <MenuFlyoutItem Text="Progetto" />
+            </MenuFlyoutSubItem>
+            <MenuFlyoutItem Text="Apri..." Command="{Binding OpenCommand}" IconImageSource="{StaticResource IconOpen}" />
+            <MenuFlyoutItem Text="Salva..." Command="{Binding SaveCommand}" IconImageSource="{StaticResource IconSave}" />
+            <MenuFlyoutItem Text="Esci" Command="{Binding ExitCommand}" IconImageSource="{StaticResource IconExit}" />
+        </MenuBarItem>
+        <MenuBarItem Text="Modifica" windows:VisualElement.AccessKey="M">
+            <MenuFlyoutItem Text="Taglia" IconImageSource="{StaticResource IconCut}" />
+            <MenuFlyoutItem Text="Copia" IconImageSource="{StaticResource IconCopy}" />
+            <MenuFlyoutItem Text="Incolla" IconImageSource="{StaticResource IconPaste}" />
+        </MenuBarItem>
+        <MenuBarItem Text="Vai" windows:VisualElement.AccessKey="V">
+            <MenuFlyoutItem Text="Home" Command="{Binding NavigateCommand}" CommandParameter="//Home"  IconImageSource="{StaticResource IconHome}" />
+        </MenuBarItem>
+        <MenuBarItem Text="Aiuto" windows:VisualElement.AccessKey="A">
+            <MenuFlyoutItem Text="Informazioni..." Command="{Binding HelpCommand}" />
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+    <Grid>
+        <Image x:Name="Picture" Source="{Binding Picture}" Scale="{Binding Zoom}">
+            <FlyoutBase.ContextFlyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem Text="Zoom in" Command="{Binding ZoomInCommand}" IconImageSource="{StaticResource IconZoomIn}" />
+                    <MenuFlyoutItem Text="Zoom out" Command="{Binding ZoomOutCommand}" IconImageSource="{StaticResource IconZoomOut}" />
+                </MenuFlyout>
+            </FlyoutBase.ContextFlyout>
+        </Image>
+    </Grid>
+</ContentPage>

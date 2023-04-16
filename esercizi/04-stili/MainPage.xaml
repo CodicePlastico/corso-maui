@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EsercizioStili.MainPage">
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
+
+            <Label
+                FontSize="24"
+                Text="Testo1"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Azione1"
+                BackgroundColor="Green"
+                Clicked="OnClicked"
+                HorizontalOptions="Center">
+            </Button>
+
+            <Label
+                FontSize="24"
+                Text="Testo2"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Azione2"
+                BackgroundColor="Green"
+                Clicked="OnClicked"
+                HorizontalOptions="Center" />
+
+            <Label
+                FontSize="24"
+                Text="Testo3"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Azione3"
+                BackgroundColor="Green"
+                Clicked="OnClicked"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

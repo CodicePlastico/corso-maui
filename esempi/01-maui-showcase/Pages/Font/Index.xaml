@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiShowcase.Pages.Font.Index"
+             Title="Risorse">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="0,10" />
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <Grid ColumnDefinitions="Auto,*">
+            <VerticalStackLayout Grid.Column="1" Padding="10">
+                <Label Text="The quick brown fox jumped over the lazy dog" FontSize="24" FontFamily="Consolas" />
+                <Label Text="The quick brown fox jumped over the lazy dog" FontSize="45" FontFamily="French Script MT" />
+                <Label Text="The quick brown fox jumped over the lazy dog" FontSize="30" FontFamily="Cambria" />
+                <Label Text="The quick brown fox jumped over the lazy dog" FontSize="40" FontFamily="Brush Script MT" />
+                <Label Text="The quick brown fox jumped over the lazy dog" FontSize="31" FontFamily="Gill Sans MT" />
+                <Label Text="The quick brown fox jumped over the lazy dog" FontSize="21" FontFamily="GothicE" />
+                <Label Text="&#xeb54;&#xeec1;&#xeaa4;&#xeaad;&#xeb62;&#xeb0d;&#xeb1b;&#xea7a;&#xea6f;&#xeac1;&#xef68;&#xeb56;&#xeb57;&#xeeff;&#xebc5;" FontSize="40" FontFamily="TablerIcons" />
+            </VerticalStackLayout>
+            <Image Grid.Column="0" Source="dotnet_bot.png" WidthRequest="230" Margin="0,0,20,0" VerticalOptions="Start" />
+        </Grid>
+    </ScrollView>
+</ContentPage>
