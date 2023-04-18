@@ -1,17 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:EsercizioBinding.Converters"
              x:Class="EsercizioBinding.Pages.MultiBinding">
-    
+
+    <ContentPage.Resources>
+        <converters:ProgressMultiConverter x:Key="ProgressMultiConveter" />
+    </ContentPage.Resources>
+
     <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
-
-        <Label Text="Metti in binding la proprietà Text della Label con le proprietà Minimum, Maximum e Value dello Slider, in modo che la label visualizzi la percentuale di avanzamento dello Slider." />
         
-        <Label Text="25%" FontSize="30" HorizontalTextAlignment="Center" />
-        <Slider Minimum="-20" Maximum="60" Value="0" />
+        <Label Text="Metti in binding la proprietà Text della Label con le proprietà Minimum, Maximum e Value dello Slider, in modo che la label visualizzi la percentuale di avanzamento dello Slider." />
+
+        <Label FontSize="30" HorizontalTextAlignment="Center">
+            <Label.Text>
+                <MultiBinding Converter="{StaticResource ProgressMultiConveter}" StringFormat="'{0:P0}'">
+                    <Binding Source="{Reference Slider1}" Path="Value" />
+                    <Binding Source="{Reference Slider1}" Path="Minimum" />
+                    <Binding Source="{Reference Slider1}" Path="Maximum" />
+                </MultiBinding>
+            </Label.Text>
+        </Label>
+
+
+
+        <Slider x:Name="Slider1" Minimum="-20" Maximum="60" Value="0" />
 
     </VerticalStackLayout>
 

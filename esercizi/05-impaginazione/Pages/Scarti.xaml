@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cv="clr-namespace:EsercizioImpaginazione.Content_Views"
+             xmlns:pages="clr-namespace:EsercizioImpaginazione.Pages"
+             xmlns:vm="clr-namespace:EsercizioImpaginazione.ViewModels"
              x:Class="EsercizioImpaginazione.Pages.Scarti"
              Title="Scarti">
-    <Image Source="scarti.png" />
+    <ContentPage.BindingContext>
+        <vm:RejectViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout>
+        <!-- <Image Source="scarti.png" />-->
+        <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto" Margin="5,0,20,0">
+            <Label Grid.Column="0" Text="Scarti ultime 24h" VerticalTextAlignment="Center" FontSize="Large"/>
+            <Border Grid.Column="1" BackgroundColor="Red" StrokeThickness="1" StrokeShape="Ellipse" WidthRequest="50" Stroke="black" HeightRequest="50">
+                <Label Text="93" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            </Border>
+        </Grid>
+        <FlexLayout Wrap="Wrap" BindableLayout.ItemsSource="{Binding RejectList}">
+            <FlexLayout.Resources>
+                <Style TargetType="cv:RejectVisi">
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+            </FlexLayout.Resources>
+
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <cv:RejectVisi Value="{Binding Counter}" Text="{Binding Reason}" />
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
+
+
+
+
+    </VerticalStackLayout>
 </ContentPage>

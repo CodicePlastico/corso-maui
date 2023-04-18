@@ -1,7 +1,61 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="EsercizioImpaginazione.Pages.Segnalazioni"
              Title="Segnalazioni">
-    <Image Source="segnalazioni.png" HorizontalOptions="Start" />
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="impact"/>
+
+
+        </Style>
+        <Style x:Key="ErrorEntry" TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="#20FF0000" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid ColumnDefinitions="*,*">
+
+
+        <ScrollView>
+            <VerticalStackLayout>
+                <Label>
+                    Data
+                </Label>
+                <DatePicker x:Name="ShiftDate" />
+                <Label>
+                    Inizio Turno
+                </Label>
+                <TimePicker x:Name="ShiftStart" Format="HH:mm"/>
+                <Label>
+                    Fine Turno
+                </Label>
+                <TimePicker x:Name="ShiftEnd" Format="HH:mm"/>
+                <Label>
+                    Nome
+                </Label>
+                <Entry x:Name="Nome">
+                    <Entry.Behaviors>
+                        <toolkit:TextValidationBehavior x:Name="NomeRequired" MinimumLength="1" InvalidStyle="{StaticResource ErrorEntry}" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Label>
+                    Segnalazioni
+                </Label>
+
+                <Editor x:Name="Notes" AutoSize="TextChanges">
+
+                </Editor>
+
+                <Button Clicked="Save" Text="Save" Margin="0,20,0,0" WidthRequest="110" HorizontalOptions="Start">
+                </Button>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+
+
+        <Image Grid.Column="1" Source="segnalazioni.png" HorizontalOptions="Start" />
+    </Grid>
 </ContentPage>

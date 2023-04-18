@@ -6,7 +6,7 @@
     xmlns:pages="clr-namespace:EsercizioImpaginazione.Pages"
     Title="Esercizio impaginazione"
     FlyoutWidth="200"
-    Shell.FlyoutBehavior="Locked">
+    Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
         Title="Segnalazioni"

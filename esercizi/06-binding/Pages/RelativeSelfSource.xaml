@@ -10,7 +10,7 @@
         
         <Label Text="Metti in binding la proprietà Text della Label con la sua proprietà Width, in modo che mostri la sua larghezza quando la finestra viene ridimensionata" />
 
-        <Label Text="20" FontSize="30" HorizontalTextAlignment="Center" />
+        <Label Text="{Binding Source={RelativeSource Self}, Path=Width}" FontSize="30" HorizontalTextAlignment="Center" />
 
     </VerticalStackLayout>
 

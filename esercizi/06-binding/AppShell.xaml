@@ -47,4 +47,9 @@
         ContentTemplate="{DataTemplate pages:BindingContextSource}"
         Route="BindingContextSource" />
 
+    <ShellContent
+        Title="Trigger"
+        ContentTemplate="{DataTemplate pages:Trigger}"
+        Route="Trigger" />
+
 </Shell>

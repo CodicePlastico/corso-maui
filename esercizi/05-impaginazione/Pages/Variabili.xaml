@@ -3,5 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EsercizioImpaginazione.Pages.Variabili"
              Title="Variabili">
-    <Image Source="variabili.png" />
+    <VerticalStackLayout>
+        <Image Source="variabili.png" />
+
+
+
+        <Grid RowDefinitions="auto, auto, *" ColumnDefinitions="*, auto">
+
+            <Label Text="Path della variabile" Grid.Column="0" />
+            <Label Text="Tipo" Grid.Column="1" />
+            <SearchBar Grid.Row="1" Grid.Column="0" />
+            <Picker Grid.Row="1" Grid.Column="1" WidthRequest="150"/>
+            <ListView Grid.Row="2" Grid.ColumnSpan="2">
+            </ListView>
+        </Grid>
+        
+        
+        
+        
+        
+        
+    </VerticalStackLayout>
 </ContentPage>

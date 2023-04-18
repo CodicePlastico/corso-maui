@@ -7,15 +7,16 @@
     <ContentPage.BindingContext>
         <pages:BindingContextViewModel />
     </ContentPage.BindingContext>
-    
+
     <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
-            VerticalOptions="Center">
+            VerticalOptions="Center"
+        BindingContext="{Binding Fotocellula}">
 
         <Label Text="Questa pagina ha un BindingContext associato: è un'istanza della classe BindingContextViewModel. Metti in binding la proprietà Text della Label con la proprietà Counter del BindingContextViewModel. Suggerimento: nel binding non sarà necessario indicare alcuna Source." />
-        
-        <Label Text="1" FontSize="30" HorizontalTextAlignment="Center" />
+
+        <Label Text="{Binding Counter}" FontSize="30" HorizontalTextAlignment="Center" />
 
     </VerticalStackLayout>
 

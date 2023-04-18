@@ -10,7 +10,7 @@
 
         <Label Text="Metti in binding la proprietà Text della Label con la proprietà Width della ContentPage, in modo che visualizzi il valore della larghezza di pagina ogni volta che cambia. Suggerimento: usa la markup extension RelativeSource." />
         
-        <Label Text="100" FontSize="30" HorizontalTextAlignment="Center" />
+        <Label Text="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=Width, FallbackValue='---'}" FontSize="30" HorizontalTextAlignment="Center" />
 
     </VerticalStackLayout>
 

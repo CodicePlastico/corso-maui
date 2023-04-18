@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:EsercizioBinding.Converters"
              x:Class="EsercizioBinding.Pages.ValueToVisibility">
-    
+    <ContentPage.Resources>
+        <converters:LessThanConverter x:Key="LessThanConverter"/>
+    </ContentPage.Resources>
+
     <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
@@ -10,8 +14,8 @@
 
         <Label Text="Metti in binding la proprietà IsVisible della Label con la proprietà Value dello Slider, in modo che la Label diventi visibile se il Value scende sotto la soglia di 20. Suggerimento: ti servirà un Converter." />
 
-        <Slider Minimum="0" Maximum="100" Value="50" />
-        <Label TextColor="Red" IsVisible="True">Il valore è sotto la soglia di sicurezza</Label>
+        <Slider x:Name="Slider1" Minimum="0" Maximum="100" Value="50" />
+        <Label TextColor="Red" IsVisible="{Binding Source={Reference Slider1}, Path=Value, Converter={StaticResource LessThanConverter}, ConverterParameter=20}">Il valore è sotto la soglia di sicurezza</Label>
 
         </VerticalStackLayout>
 

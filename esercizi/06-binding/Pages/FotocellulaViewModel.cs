@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 
 namespace EsercizioBinding.Pages
 {
-    public class BindingContextViewModel : INotifyPropertyChanged
+    public class FotocellulaViewModel : INotifyPropertyChanged
     {
-        public BindingContextViewModel()
+        public FotocellulaViewModel()
         {
-            Fotocellula = new FotocellulaViewModel();
-
             var timer = Application.Current.Dispatcher.CreateTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += IncrementCounter;
@@ -21,11 +19,9 @@ namespace EsercizioBinding.Pages
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public FotocellulaViewModel Fotocellula { get; }
-
         private void IncrementCounter(object sender, EventArgs e)
         {
-            Counter++;
+            Counter += 10;
         }
 
         private int counter = 0;
@@ -42,16 +38,7 @@ namespace EsercizioBinding.Pages
                 { 
                     counter = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Counter)));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsLow)));
                 }
-            }
-        }
-
-        public bool IsLow
-        {
-            get
-            {
-                return Counter < 20;
             }
         }
     }

@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:EsercizioBinding.Converters"
              x:Class="EsercizioBinding.Pages.ValueToValueTwoWay">
+    <ContentPage.Resources>
+        <converters:LessThanConverter x:Key="LessThanConverter"/>
+    </ContentPage.Resources>
 
     <VerticalStackLayout
             Spacing="25"
@@ -10,8 +14,8 @@
 
         <Label Text="Metti in binding la proprietà Value del primo Slider con la proprietà Value del secondo Slider, in modo che il Value di ciascuno dei due sia sincronizzato all'altro, cioè si aggiorni quando l'altro cambia." />
         
-        <Slider Minimum="0" Maximum="100" Value="20" />
-        <Slider Minimum="0" Maximum="100" Value="20" />
+        <Slider x:Name="Slider1" Minimum="0" Maximum="100" Value="{Binding Source={Reference Slider2}, Path=Value, Mode=TwoWay}" />
+        <Slider x:Name="Slider2" Minimum="0" Maximum="100" Value="20" />
 
     </VerticalStackLayout>
 

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:EsercizioBinding.Pages"
+             x:Class="EsercizioBinding.Pages.Trigger">
+
+    <ContentPage.Resources>
+        <pages:TriggerThresholdConverter x:Key="TriggerThresholdConverter" />
+    </ContentPage.Resources>
+
+    <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+        <Label Text="Quando il valore dello slider scende al di sotto di 20, colora il background dello slider di rosso e visualizza un alert per segnalare l'anomalia. Quando poi il valore torna sopra torna sopra il 20, visualizza un altro alert che informa del rientro alla normalità." />
+
+        <Slider Minimum="0" Maximum="100" Value="40">
+            <Slider.Triggers>
+                <DataTrigger TargetType="Slider" Binding="{Binding Source={RelativeSource Self}, Path=Value, Converter={StaticResource TriggerThresholdConverter}, ConverterParameter=20}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <pages:TriggerActionEnterAnomaly />
+                    </DataTrigger.EnterActions>
+                    <DataTrigger.ExitActions>
+                        <pages:TriggerActionExitAnomaly />
+                    </DataTrigger.ExitActions>
+                    <Setter Property="BackgroundColor" Value="Red" />
+                </DataTrigger>
+            </Slider.Triggers>
+        </Slider>
+
+    </VerticalStackLayout>
+
+</ContentPage>

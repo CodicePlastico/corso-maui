@@ -2,12 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EsercizioVerticalStackLayout.MainPage">
+    <ContentPage.Resources>
+        <Color x:Key="BgColor">Green</Color>
+    </ContentPage.Resources>
 
     <VerticalStackLayout>
+        <VerticalStackLayout.Resources>
+            <Style TargetType="Label">
+                <Setter Property="BackgroundColor" Value="{StaticResource BgColor}" />
+            </Style>
+            <Style x:Key="TheOneLabel" TargetType="Label">
+                <Setter Property="BackgroundColor" Value="Red" />
+            </Style>
+            <Style x:Key="TheOnlyLabel" BasedOn="{StaticResource TheOneLabel}" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+        </VerticalStackLayout.Resources>
         <Label Text="Yes" />
         <Label Text="No" />
         <Label Text="Maybe" />
-        <Label Text="I don't know" />
+        <Label Text="I don't know" Style="{StaticResource TheOnlyLabel}" />
     </VerticalStackLayout>
 
 </ContentPage>

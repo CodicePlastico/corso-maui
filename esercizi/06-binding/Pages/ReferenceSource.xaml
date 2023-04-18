@@ -9,8 +9,8 @@
             VerticalOptions="Center">
         <Label Text="Metti in binding la proprietà Text della Label con la proprietà Value dello Slider, in modo che la Label visualizzi il valore INTERO attuale dello slider ogni volta che cambia. Suggerimento: dovrai usare StringFormat" />
 
-        <Label Text="20" FontSize="30" HorizontalTextAlignment="Center" />
-        <Slider Minimum="0" Maximum="100" Value="20" />
+        <Label Text="{Binding Source={Reference MySlider}, Path=Value, StringFormat='{0:0}'}" FontSize="30" HorizontalTextAlignment="Center" />
+        <Slider x:Name="MySlider" Minimum="0" Maximum="100" Value="20" />
 
     </VerticalStackLayout>
 

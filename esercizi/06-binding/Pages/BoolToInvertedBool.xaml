@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="EsercizioBinding.Pages.BoolToInvertedBool">
 
+    <ContentPage.Resources>
+        <toolkit:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+    </ContentPage.Resources>
+    
     <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
@@ -10,8 +15,9 @@
 
         <Label Text="Metti in binding la proprietà IsVisible della Label con la proprietà IsChecked della Checkbox, in modo che la Label diventi invisibile quando la casella è spuntata. Suggerimento: puoi usare un Converter fornito con il MAUI Toolkit" />
         
-        <CheckBox IsChecked="True" />
-        <Label Text="La casella deve essere spuntata" TextColor="Red" IsVisible="True" />
+        <CheckBox x:Name="PrivacyConsent" IsChecked="True" />
+        <CheckBox IsChecked="{Binding Source={Reference PrivacyConsent}, Path=IsChecked, Converter={StaticResource InvertedBoolConverter}, Mode=TwoWay}" />
+        <Label Text="La casella deve essere spuntata" TextColor="Red" IsVisible="{Binding Source={Reference PrivacyConsent}, Path=IsChecked, Converter={StaticResource InvertedBoolConverter}, Mode=TwoWay}" />
 
     </VerticalStackLayout>
 
